@@ -9,7 +9,7 @@
 
 <body>
     <div class="mylogo">
-    <?php include("php_reusable_comp\logo.php");?>
+    <?php include("logo.htm");?>
 
     </div>
     <div id="h1">
@@ -18,7 +18,7 @@
     </div>
     <div>
         <div class="topnav">
-            <?php include('menu_apply.php');?>
+            <?php include('menu_apply.htm');?>
         </div>
     </div>
     <div class="faculty">
@@ -165,7 +165,7 @@
     
         <script src="Javascripts/rd1.js"></script>
         <div id="footer">
-        <?php include('footer.php');?>
+        <?php include('footer.htm');?>
         
         </div>
 

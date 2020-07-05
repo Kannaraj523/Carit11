@@ -9,7 +9,7 @@
 
 <body>
     <div class="mylogo">
-    <?php include("php_reusable_comp\logo.php");?>
+    <?php include("logo.htm");?>
  
     </div>
     <div id="h1">
@@ -18,7 +18,7 @@
     </div>
     <div>
         <div class="topnav">
-            <?php include('menu.php');?>
+            <?php include('menu.htm');?>
         </div>
     </div>
     <div class="faculty">
@@ -50,15 +50,16 @@
         In addition, KSU has waived all mandatory fees, excluding a technology fee and the special institutional
         fee, for students enrolled in courses for the summer of 2020.
         Residence Halls are closed to all students except those previously approved to remain on campus for the
-        summer 2020 semester.
-        Fall Semester 2020
+        summer 2020 semester.<br>
+        <h3>Fall Semester 2020</h3>
         New Student Orientation has been transferred to an online experience for students beginning classes for the
-        Fall 2020 term. Click here for more information.
-        Fall Semester: The University is currently working on plans for a return to campus for the fall 2020
+        Fall 2020 term. <br>
+        <b>Fall Semester:</b> The University is currently working on plans for a return to campus for the fall 2020
         semester for all students, based on guidelines provided by the University System of Georgia. As soon as
-        information is available, the campus community will be notified and this page will be update.
-        Preventative Care
-        As recommended by the Centers for Disease Control and Prevention (CDC):
+        information is available, the campus community will be notified and this page will be update.<br>
+        
+       <b><i> Preventative Care</i></b>
+        <h4>As recommended by the Centers for Disease Control and Prevention (CDC):</h4>
         </p>
         <ul>
             <li>Wash hands regularly.</li>
@@ -79,7 +80,7 @@
     </div>
 
     <div id="footer">
-    <?php include('footer.php');?>
+    <?php include('footer.htm');?>
     </div>
 
 </body>

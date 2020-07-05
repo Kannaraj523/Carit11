@@ -14,8 +14,10 @@
 	<p>Mail ID : <?php echo $_POST["mailid"]?></p>
     <p>Status : <?php echo $_POST["education"]?></p>
 	<p>Alerts Needed: <?php echo $_POST["alert"]?></p>
-    <p>Semesters enrolled for : <?php echo $_POST["sem"]?></p>
-
+	<p>Semesters enrolled for : <?php echo $_POST["sem"]?></p>
+	
+     <span><a href="applypositions.php">Go Back</a></span>
+    
 </body>
 
 </html>

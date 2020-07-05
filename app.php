@@ -12,7 +12,7 @@
 <body>
 
     <div class="mylogo">
-    <?php include ("php_reusable_comp\logo.php"); ?>
+    <?php include ("logo.htm"); ?>
     </div>
     
     <div id="h1">
@@ -21,14 +21,14 @@
     </div>
     <div>
         <div class="topnav">
-        <?php include('menu_apply.php');?>
+        <?php include('menu_apply.htm');?>
         </div>
     </div>
     <div class="faculty">
     <p>
         Welcome to the Center for Applied Research in Information Technology (CARIT) website. There are 4 <b>student assistant positions </b>open.
-        In order to be considered for the positions students needs to meet certain criteria . You can check you elibibilty by giving your details below
-        .Do not loose this wornderful oppurtunity !!<br>
+        
+        <br>
     </p>
     
     <div id="cong">
@@ -37,20 +37,76 @@
         Please fill in the details needed for this position.
         </p>
     </div>
-        <h2>Student Profile</h2>
-    <form name="profile" method="post" action="student_form-action1.php <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+<?php
+// defining variables and settting them to empty values 
+  $nameErr = $emailErr = $alertErr = $semErr =$ksuidErr="";
+ 
+ if ($_SERVER["REQUEST_METHOD"] == "POST") 
+ {
+  if (empty($_POST["personname"])) 
+  {
+    $nameErr = "Name is required";
+  }
+  else 
+  {
+    $name = test_input($_POST["personname"]);
+  }   
+}
+
+ if ($_SERVER["REQUEST_METHOD"] == "POST") 
+ {
+  if (empty($_POST["mailid"])) {
+    $emailErr = "Email is required";
+  }
+  else 
+  {
+    $mailid = test_input($_POST["mailid"]);
+  }
+}
+
+ if ($_SERVER["REQUEST_METHOD"] == "POST") 
+ {
+  if (empty($_POST["ksuid"])) 
+  {
+    $ksuidErr = "KSUI is required";
+  }
+  else 
+  {
+    $ksuid = test_input($_POST["ksuid"]);
+  }
+ }
+
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+ }
+
+ ?>
+
+  <h2>Student Profile</h2>
+        
+  <p><span class = "error">* required field.</span></p>
+    <form name="profile" method="post" action="student_form-action1.php" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
+    
          <table width="500" border="0">
     <tr> 
-      <td width="150" bgcolor="#99CCFF"><strong>Name</strong></td>
-      <td><input type="text" name="personname" size="20" maxlength="20" /></td>
+        <td width="150" bgcolor="#99CCFF"><strong>Name</strong></td>
+      <td><input type="text" pattern="[a-z A-Z]+" title="Enter your name" name="personname" required size="20" maxlength="20" >
+         <span class = "error">* <?php echo $nameErr;?></span>
+      </td>
     </tr>
     <tr> 
       <td width="150" bgcolor="#99CCFF"><strong>KSU ID</strong></td>
-      <td><input type="text" name="ksuid" size="20" maxlength="20" /></td>
+      <td><input type="text" pattern="[0-9]{9}" name="ksuid" title="9 Digit KSUID"required size="20" maxlength="20" /></td>
+      <span class = "error">* <?php echo $ksuidErr;?></span>
     </tr>
     <tr> 
       <td width="150" bgcolor="#99CCFF"><strong>Email id</strong></td>
-      <td><input type="text" name="mailid" size="20" maxlength="20" /></td>
+      <td><input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter your email ID: Eg: name@domain.com"name="mailid" required size="20" maxlength="20" /></td>
+      <span class = "error">* <?php echo $emailErr;?></span>
     </tr>
     
     <tr> 
@@ -74,18 +130,13 @@
         </select></td>
     </tr>
   </table>
- <?php 
- // defining variables and settting them to empty values 
-
-
-
   <p>
     <input type="submit" value="Submit" />
   </p>
-  </form>
-
+  
    <div id ="footer">
-       <?php include('footer.php');?> 
+       <?php include('footer.htm');?> 
     </div>
     </body>
     </html>
+

@@ -9,7 +9,7 @@
 
 <body>
     <div class="mylogo">
-    <?php include("php_reusable_comp\logo.php");?>
+    <?php include("logo.htm");?>
 
     </div>
     <div id="h1">
@@ -18,7 +18,7 @@
     </div>
   <div >
     <div class="topnav">
-        <?php include('menu_contacts.php');?>
+        <?php include('menu_contacts.htm');?>
     </div>
     <h1>Faculty details </h1>
     <div class="hover">
@@ -66,7 +66,7 @@
         <p>Email: xtian2@kennesaw.edu</p>
     </div>
     <div id="footer">
-    <?php include('footer.php');?>
+    <?php include('footer.htm');?>
     
     </div>
 
