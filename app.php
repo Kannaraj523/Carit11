@@ -37,59 +37,13 @@
         Please fill in the details needed for this position.
         </p>
     </div>
-
-<?php
-// defining variables and settting them to empty values 
-  $nameErr = $emailErr = $alertErr = $semErr =$ksuidErr="";
- 
- if ($_SERVER["REQUEST_METHOD"] == "POST") 
- {
-  if (empty($_POST["personname"])) 
-  {
-    $nameErr = "Name is required";
-  }
-  else 
-  {
-    $name = test_input($_POST["personname"]);
-  }   
-}
-
- if ($_SERVER["REQUEST_METHOD"] == "POST") 
- {
-  if (empty($_POST["mailid"])) {
-    $emailErr = "Email is required";
-  }
-  else 
-  {
-    $mailid = test_input($_POST["mailid"]);
-  }
-}
-
- if ($_SERVER["REQUEST_METHOD"] == "POST") 
- {
-  if (empty($_POST["ksuid"])) 
-  {
-    $ksuidErr = "KSUI is required";
-  }
-  else 
-  {
-    $ksuid = test_input($_POST["ksuid"]);
-  }
- }
-
-  function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
- }
-
- ?>
+  <?php include ('action1.php') ?>
 
   <h2>Student Profile</h2>
         
   <p><span class = "error">* required field.</span></p>
-    <form name="profile" method="post" action="student_form-action1.php" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
+    <form name="profile" method="post" action="student_form-action1.php">
+
     
          <table width="500" border="0">
     <tr> 
@@ -100,13 +54,13 @@
     </tr>
     <tr> 
       <td width="150" bgcolor="#99CCFF"><strong>KSU ID</strong></td>
-      <td><input type="text" pattern="[0-9]{9}" name="ksuid" title="9 Digit KSUID"required size="20" maxlength="20" /></td>
-      <span class = "error">* <?php echo $ksuidErr;?></span>
+      <td><input type="text" pattern="[0-9]{9}" name="ksuid" title="9 Digit KSUID"required size="20" maxlength="20" />
+      <span class = "error">* <?php echo $ksuidErr;?></span></td>
     </tr>
-    <tr> 
+      <tr> 
       <td width="150" bgcolor="#99CCFF"><strong>Email id</strong></td>
-      <td><input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter your email ID: Eg: name@domain.com"name="mailid" required size="20" maxlength="20" /></td>
-      <span class = "error">* <?php echo $emailErr;?></span>
+      <td><input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter your email ID: Eg: name@domain.com"name="mailid" required size="20" maxlength="20" />
+      <span class = "error">* <?php echo $emailErr;?></span></td>
     </tr>
     
     <tr> 
@@ -114,7 +68,7 @@
       <td><input type="radio" name="education" value="Graduate" />
         Graduate
         <input type="radio" name="education" value="Undergraduate" checked="checked"/>
-        UnderGraduate
+          UnderGraduate
     </tr>
     <tr> 
       <td bgcolor="#99CCFF"><strong>Email Alerts</strong></td>
@@ -131,7 +85,7 @@
     </tr>
   </table>
   <p>
-    <input type="submit" value="Submit" />
+    <input type="submit" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" value="Submit" />
   </p>
   
    <div id ="footer">

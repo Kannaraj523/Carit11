@@ -45,6 +45,7 @@
     
         <select id="mySelect" onchange='function1(this.value)'>
     
+        <option value="0">Select your status</option>
         <option value="1">Under Graduate</option>
     
         <option value="2">Graduate</option>
